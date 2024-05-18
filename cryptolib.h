@@ -1,5 +1,5 @@
-#include <stdio.h>
+#include <iostream>
 
-void test() {
-    printf("testt1");
+std::string test() {
+    return "testt1";
 }
