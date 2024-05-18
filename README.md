@@ -10,3 +10,6 @@ git clone https://github.com/microsoft/vcpkg.git
 ./vcpkg/vcpkg integrate install
 ./vcpkg/vcpkg install nlohmann-json
 
+
+## compile 
+g++ -std=c++11 -o main main.cpp -lcpprest -lboost_system -lssl -lcrypto -lpthread -lboost_thread
