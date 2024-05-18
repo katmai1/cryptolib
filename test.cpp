@@ -1,5 +1,5 @@
 #include "cryptolib.h"
 
 int main() {
-    std::cout << test() << "bieeen" << std::endl;
+    cout << test() << "bieeen" << endl;
 }

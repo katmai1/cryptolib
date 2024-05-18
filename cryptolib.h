@@ -1,5 +1,8 @@
 #include <iostream>
 
-std::string test() {
-    return "testt1";
+using namespace std;
+
+
+string test() {
+    return "testt12";
 }
