@@ -24,18 +24,20 @@ public:
         uri_builder builder("/ticker/price");
         builder.append_query("symbol", market);
 
-        auto response = client.request(methods::GET, builder.to_string()).get();
-        auto jsonValue = response.extract_json().get();
+        try {
+            auto response = client.request(methods::GET, builder.to_string()).get();
+            auto jsonValue = response.extract_json().get();
 
-        if (response.status_code() == status_codes::OK) {
-            string priceStr = jsonValue["price"].as_string();
-            cout << priceStr << endl;
-            double price = stod(priceStr);    
-            return price;
+            if (response.status_code() == status_codes::OK) {
+                string priceStr = jsonValue["price"].as_string();
+                cout << priceStr << endl;
+                double price = stod(priceStr);    
+                return price;
+            }
+            else {  cerr << "Error: " << jsonValue["msg"].as_string();  }
         }
-        else {
-            throw runtime_error(jsonValue["msg"].as_string());
-        }
+        catch (const exception& e) {    std::cerr << "Error: " << e.what() << std::endl;    }
+        return 0;
     }
 
 private:

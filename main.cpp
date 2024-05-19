@@ -1,4 +1,4 @@
-#include <iostream>
+// #include <iostream>
 #include <iomanip>
 
 #include "cryptolib.h"
@@ -8,7 +8,7 @@ using namespace std;
 
 
 int main() {
-    auto ex = getExchange("kucoin");
+    auto ex = getExchange("binance");
     if (ex) {
         double price = ex->getPrice("CHZ/USDT");
         cout << setprecision(12) << price << endl;
