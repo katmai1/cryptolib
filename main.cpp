@@ -1,21 +1,19 @@
 #include <iostream>
 #include <iomanip>
-#include "binance.h"
+
+#include "cryptolib.h"
 
 
 using namespace std;
 
 
 int main() {
-   BinanceAPI binance;
-
-    try {
-        // Obtener el precio de Bitcoin en dólares estadounidenses (USDT)
-        double bitcoinPrice = binance.getPrice("CHZUSDT");
-        cout << setprecision(15) << bitcoinPrice << endl;
-    } catch (const exception& e) {
-        cerr << "Error: " << e.what() << endl;
+    auto ex = getExchange("kucoin");
+    if (ex) {
+        double price = ex->getPrice("CHZ/USDT");
+        cout << setprecision(12) << price << endl;
+    } else {
+        std::cerr << "Exchange no válido" << std::endl;
     }
-
     return 0;
 }
