@@ -23,6 +23,18 @@ public:
         return _getPrice(symbol, quote);
     };
 
+    // calcula los beneficios de una entrada
+    virtual double getProfit(double amount, double buyPrice, double lastPrice) {
+        return amount * (lastPrice - buyPrice);
+    }
+
+    // calcula los beneficios de una entrada
+    virtual double getProfitPercent(double amount, double buyPrice, double lastPrice) {
+        double profit = amount * (lastPrice - buyPrice);
+        return (profit / (amount * buyPrice)) * 100.0;
+    }
+
+
     // ************************************************************************
     // funciones que hay que sobrescribir en cada exchange
     virtual double _getPrice(const string symbol, const string quote) { return 0;   }

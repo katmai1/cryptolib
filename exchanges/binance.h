@@ -30,7 +30,6 @@ public:
 
             if (response.status_code() == status_codes::OK) {
                 string priceStr = jsonValue["price"].as_string();
-                cout << priceStr << endl;
                 double price = stod(priceStr);    
                 return price;
             }
